@@ -1,0 +1,54 @@
+/* 搜索输入框组件 */
+.search-input {
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 标题 */
+.search-input__title {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family);
+  font-weight: bold;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-lg);
+}
+
+/* 输入区域容器 */
+.search-input__container {
+  position: relative;
+}
+
+/* 文本输入框 */
+.search-input__textarea {
+  width: 740px;
+  min-height: 100px;
+  max-height: 400px;
+  padding: 14px var(--space-lg) 14px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-bg-light);
+  font-size: var(--font-size-md);
+  font-family: var(--font-family);
+  letter-spacing: 1px;
+  outline: none;
+  transition: all var(--anim-duration);
+  resize: none;
+  overflow-y: auto;
+}
+
+.search-input__textarea::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* 发送按钮 */
+.search-input__send-btn {
+  position: absolute;
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  cursor: pointer;
+} 

@@ -1,0 +1,36 @@
+/* CSS全局变量 */
+:root {
+  /* 布局尺寸 */
+  --layout-top-height: 60px;
+  --layout-side-width: 260px;
+  --layout-side-width-collapsed: 0;
+  
+  /* 间距 */
+  --space-md: 20px;
+  --space-sm: 8px;
+  --space-lg: 60px;
+  
+  /* 图标 */
+  --icon-size-lg: 38px;
+  --icon-size-md: 42px;
+  
+  /* 颜色 */
+  --color-border: #e0e0e0;
+  --color-bg-light: #f5f5f5;
+  --color-text: #2c3e50;
+  --color-text-dark: #333;
+  
+  /* 字体 */
+  --font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  --font-size-lg: 32px;
+  --font-size-md: 16px;
+  
+  /* 圆角 */
+  --border-radius-lg: 24px;
+  --border-radius-sm: 8px;
+  
+  /* 动画 */
+  --anim-duration: 0.4s;
+  --anim-duration-fast: 0.2s;
+  --anim-timing: cubic-bezier(0.4, 0, 0.2, 1);
+} 

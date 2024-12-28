@@ -1,0 +1,98 @@
+/* 顶部导航栏 */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  height: var(--layout-top-height);
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.top-bar-content {
+  margin-left: var(--layout-side-width);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  transition: margin-left var(--anim-duration) var(--anim-timing);
+  will-change: margin-left;
+}
+
+.app-title {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  font-family: var(--font-family);
+  color: var(--color-text-dark);
+  margin-left: auto;
+  padding-right: var(--space-md);
+}
+
+.top-bar-content.collapsed {
+  margin-left: calc(var(--icon-size-lg) + var(--space-md) * 2.6);
+}
+
+/* 侧边栏 */
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--layout-side-width);
+  height: 100vh;
+  border-right: 1px solid var(--color-border);
+  background-color: var(--color-bg-light);
+  display: flex;
+  flex-direction: column;
+  transition: width var(--anim-duration) var(--anim-timing),
+              border-right var(--anim-duration) var(--anim-timing);
+  overflow: hidden;
+  will-change: width;
+  z-index: 100;
+}
+
+.side-bar.collapsed {
+  width: var(--layout-side-width-collapsed);
+  border-right: none;
+}
+
+/* 菜单图标 */
+.menu-icon {
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  cursor: pointer;
+  fill: currentColor;
+  transition: all var(--anim-duration) var(--anim-timing);
+  transform-origin: center center;
+  position: fixed;
+  left: var(--space-md);
+  top: 11px;
+  z-index: 110;
+  padding: var(--space-sm);
+  border-radius: var(--space-sm);
+  background-color: var(--color-bg-light);
+  will-change: transform;
+}
+
+.menu-icon.rotated {
+  transform: rotate(180deg);
+  background-color: transparent;
+}
+
+.menu-icon:hover {
+  opacity: 0.8;
+}
+
+/* 主内容区域 */
+.main-content {
+  margin-left: var(--layout-side-width);
+  height: calc(100vh - var(--layout-top-height));
+  transition: margin-left var(--anim-duration) var(--anim-timing);
+  will-change: margin-left;
+  overflow: hidden;
+}
+
+.main-content.expanded {
+  margin-left: calc(var(--icon-size-lg) + var(--space-md) * 2.6);
+} 

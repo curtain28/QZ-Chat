@@ -1,0 +1,262 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layout {
+  padding-top: var(--layout-top-height);
+  height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  height: 100%;
+  overflow: auto;
+}
+
+/* 模型选择器样式 */
+.model-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-right: var(--space-lg);
+}
+
+.model-selector select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: white;
+  font-size: var(--font-size-md);
+  outline: none;
+  cursor: pointer;
+}
+
+.model-status {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.model-status.is-connected {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+/* 调试按钮样式 */
+.debug-btn,
+.prompt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 32px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-family: var(--font-family);
+}
+
+.debug-btn:hover,
+.prompt-btn:hover {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+}
+
+/* 调试窗口样式 */
+.debug-window {
+  position: fixed;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  user-select: none;
+  min-width: 300px;
+  min-height: 200px;
+}
+
+.debug-window__header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-light);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.debug-window__header.dragging {
+  opacity: 0.9;
+}
+
+.debug-window__header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.debug-window__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.debug-window__actions button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.debug-window__clear-btn {
+  background-color: #f3f4f6;
+  color: var(--color-text);
+}
+
+.debug-window__close-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.debug-window__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.debug-log {
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.debug-log--info {
+  background-color: #f3f4f6;
+}
+
+.debug-log--error {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.debug-log--warn {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.debug-log__time {
+  color: #6b7280;
+  margin-right: 8px;
+}
+
+.debug-log__message {
+  word-break: break-all;
+}
+
+/* 调整大小的控制点样式 */
+.resize-handle {
+  position: absolute;
+  background: transparent;
+}
+
+.resize-handle--n {
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  cursor: ns-resize;
+}
+
+.resize-handle--e {
+  top: 0;
+  right: -3px;
+  bottom: 0;
+  width: 6px;
+  cursor: ew-resize;
+}
+
+.resize-handle--s {
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  cursor: ns-resize;
+}
+
+.resize-handle--w {
+  top: 0;
+  left: -3px;
+  bottom: 0;
+  width: 6px;
+  cursor: ew-resize;
+}
+
+.resize-handle--nw {
+  top: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  cursor: nw-resize;
+}
+
+.resize-handle--ne {
+  top: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  cursor: ne-resize;
+}
+
+.resize-handle--se {
+  bottom: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  cursor: se-resize;
+}
+
+.resize-handle--sw {
+  bottom: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  cursor: sw-resize;
+}
+
+/* 新建对话图标 */
+.new-chat-icon {
+  position: fixed;
+  left: calc(var(--space-md) + var(--icon-size-lg) + var(--space-sm));
+  top: 11px;
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  padding: var(--space-sm);
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 110;
+}
+
+.new-chat-icon .icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text);
+} 

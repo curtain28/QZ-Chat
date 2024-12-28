@@ -1,0 +1,29 @@
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 基础样式 */
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-text);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 布局容器 */
+.layout {
+  min-height: 100vh;
+  background-color: #fff;
+  position: relative;
+  overflow: hidden;
+} 

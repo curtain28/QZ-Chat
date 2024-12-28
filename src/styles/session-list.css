@@ -1,0 +1,245 @@
+.session-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-light);
+}
+
+.session-list__header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  height: var(--layout-top-height);
+}
+
+.session-list__new {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.session-list__new .icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text);
+  stroke: none;
+  transform: scale(1);
+}
+
+.session-list__items {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-sm);
+  position: relative;
+}
+
+/* 自定义滚动条样式 */
+.session-list__items::-webkit-scrollbar {
+  width: 8px;
+}
+
+.session-list__items::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.session-list__items::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.session-list__items::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
+}
+
+/* 隐藏编辑框的滚动条 */
+.session-item__title[contenteditable="true"]::-webkit-scrollbar {
+  display: none;
+}
+
+.session-item {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  height: 36px;
+  position: relative;
+}
+
+.session-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.session-item.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.session-item__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  position: relative;
+}
+
+.session-item__title {
+  flex: 1;
+  font-size: 14px;
+  color: var(--color-text);
+  outline: none;
+  line-height: 28px;
+  padding: 0 50px 0 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-item__title[contenteditable="true"] {
+  background: #fff;
+  border: 2px solid #333;
+  padding: 0 8px 0 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 2;
+  white-space: nowrap;
+  overflow: scroll;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 28px;
+  line-height: 24px;
+  text-overflow: unset;
+}
+
+.session-item__title[contenteditable="true"]::-webkit-scrollbar {
+  display: none;
+}
+
+.session-item__actions {
+  display: none;
+  gap: 4px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  height: 36px;
+  align-items: center;
+}
+
+.session-item:hover .session-item__actions {
+  display: flex;
+}
+
+.action-btn {
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  opacity: 1;
+}
+
+.action-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  display: block;
+}
+
+/* 删除确认弹窗样式 */
+.delete-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.delete-confirm__content {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.delete-confirm__content p {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.delete-confirm__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.delete-confirm__btn {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.delete-confirm__btn--cancel {
+  background-color: #f3f4f6;
+  color: var(--color-text);
+}
+
+.delete-confirm__btn--cancel:hover {
+  background-color: #e5e7eb;
+}
+
+.delete-confirm__btn--confirm {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-confirm__btn--confirm:hover {
+  background-color: #dc2626;
+}
+
+.session-group__title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  padding: 8px var(--space-md);
+  margin-top: 32px;
+  position: sticky;
+  top: -10px;
+  background-color: var(--color-bg-light);
+  z-index: 10;
+}
+
+/* 第一个分组标题需要较大的上边距，为功能图标预留空间 */
+.session-group__title:first-child {
+  margin-top: 8px;
+} 
