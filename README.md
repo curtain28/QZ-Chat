@@ -155,21 +155,6 @@ ModuleNotFoundError: No module named 'attrs'
   - serve: `"start": "serve -s dist -l 8000"`
   - http-server: `"start": "http-server dist -p 8000"`
 
-## 浏览器支持
-
-- Chrome >= 64
-- Firefox >= 67
-- Safari >= 12
-- Edge >= 79
-
-
-## 版本历史
-
-- 0.1.0
-  - 初始版本
-  - 基础聊天功能
-  - 会话管理
-
 ## 许可证
 
 [Apache-2.0 License](LICENSE)
